@@ -1,0 +1,122 @@
+* initial_box_0 and initial_box_1 - created by MoSDeF-GOMC using the on 2025-02-06 15:29:49.839697
+* These parameters use the non-bonded LJ form --- with these force field(s) via MoSDef  {'C1OH': '../../trappe-charmm2.xml', 'C6A': '../../trappe-charmm2.xml', 'S1OH': '../../trappe-scaled-charmm.xml', 'S6A': '../../trappe-scaled-charmm.xml', 'S4A': '../../trappe-scaled-charmm.xml', 'S2A': '../../trappe-scaled-charmm.xml'}.
+*  1-4 electrostatic scaling = {'C1OH': 0.0, 'C6A': 0.0, 'S1OH': 0.0, 'S6A': 0.0, 'S4A': 0.0, 'S2A': 0.0} , and 1-4 non-bonded scaling = {'C1OH': 0.0, 'C6A': 0.0, 'S1OH': 0.0, 'S6A': 0.0, 'S4A': 0.0, 'S2A': 0.0}, and non-bonded mixing rule = lorentz
+
+*            4674 atoms
+*            3651 bonds
+*            2628 angles
+*            1609 dihedrals
+*               0 impropers
+
+
+* masses
+
+! atom_types      mass            ! atomClass_ResidueName
+* CH30            15.0344         ! C1OH_CH3_O               
+* O0              15.9994         ! C1OH_O                   
+* H0              1.0078          ! C1OH_H                   
+* CH31            15.0344         ! C6A_CH3_sp3              
+* CH20            14.0266         ! C6A_CH2_sp3              
+* CH32            15.0344         ! S1OH_CH3_O               
+* O1              15.9994         ! S1OH_O                   
+* H1              1.0078          ! S1OH_H                   
+* CH35            15.0344         ! S6A_CH3_sp3              
+* CH22            14.0266         ! S6A_CH2_sp3              
+* CH34            15.0344         ! S4A_CH3_sp3              
+* CH21            14.0266         ! S4A_CH2_sp3              
+* CH33            15.0344         ! S2A_CH3_sp3              
+
+BONDS * harmonic
+! 
+! V(bond) = Kb(b - b0)**2
+! 
+! Kb: kcal/mol/A**2 (LJ) and  K/A**2 (Mie and Exp6)
+! b0: A
+! Kb (kcal/mol) = Kb_K (K) * Boltz. const.; (9999999999 if no stretching)
+! 
+! type_1   type_2     Kb              b0              ! extended_type_1      extended_type_2     
+CH30       O0         1200.802991     1.43            ! C1OH_CH3_O           C1OH_O              
+O0         H0         1200.802991     0.945           ! C1OH_O               C1OH_H              
+CH31       CH20       1200.802991     1.54            ! C6A_CH3_sp3          C6A_CH2_sp3         
+CH20       CH20       1200.802991     1.54            ! C6A_CH2_sp3          C6A_CH2_sp3         
+CH32       O1         1200.802991     1.43            ! S1OH_CH3_O           S1OH_O              
+O1         H1         1200.802991     0.945           ! S1OH_O               S1OH_H              
+CH35       CH22       1200.802991     1.54            ! S6A_CH3_sp3          S6A_CH2_sp3         
+CH22       CH22       1200.802991     1.54            ! S6A_CH2_sp3          S6A_CH2_sp3         
+CH34       CH21       1200.802991     1.54            ! S4A_CH3_sp3          S4A_CH2_sp3         
+CH21       CH21       1200.802991     1.54            ! S4A_CH2_sp3          S4A_CH2_sp3         
+CH33       CH33       1200.802991     1.54            ! S2A_CH3_sp3          S2A_CH3_sp3         
+
+ANGLES * harmonic
+! 
+! V(angle) = Ktheta(Theta - Theta0)**2
+! 
+! Ktheta: kcal/mol/rad**2 (LJ) and  K/rad**2 (Mie and Exp6)
+! Theta0: degrees
+! 
+!  Boltzmann = 0.0019872041 kcal / (mol * K)
+! 
+! Ktheta (kcal/mol) = Ktheta_K (K) * Boltz. const.
+! 
+! type_1   type_2     type_3     Ktheta          Theta0          ! extended_type_1      extended_type_2      extended_type_3     
+CH30       O0         H0         55.045555       108.5           ! C1OH_CH3_O           C1OH_O               C1OH_H              
+CH31       CH20       CH20       62.10013        114.0           ! C6A_CH3_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH20       CH20       CH20       62.10013        114.0           ! C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH32       O1         H1         55.045555       108.5           ! S1OH_CH3_O           S1OH_O               S1OH_H              
+CH35       CH22       CH22       62.10013        114.0           ! S6A_CH3_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH22       CH22       CH22       62.10013        114.0           ! S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH34       CH21       CH21       62.10013        114.0           ! S4A_CH3_sp3          S4A_CH2_sp3          S4A_CH2_sp3         
+
+DIHEDRALS * CHARMM
+! 
+! V(dihedral) = Kchi(1 + cos(n(chi) - delta)), where delta also called chi0 
+! NOTE: For the CHARMM FF n=0 is a harmonic dihedral, which is not supported. CHARMM FF where n=0 -->  V(dihedral) = Kchi(chi - chi0)**2) 
+! 
+! Kchi: kcal/mol (LJ) and K (Mie and Exp6)
+! n: multiplicity
+! delta: degrees
+! 
+! Kchi (kcal/mol) = Kchi_K (K) * Boltz. const.
+! Boltzmann = 0.0019872041 kcal / (mol * K)
+! 
+! type_1   type_2     type_3     type_4     Kchi            n          delta           ! extended_type_1      extended_type_2      extended_type_3      extended_type_4     
+CH31       CH20       CH20       CH20       0.705517        1          0.0             ! C6A_CH3_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH31       CH20       CH20       CH20       -0.135507       2          180.0           ! C6A_CH3_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH31       CH20       CH20       CH20       1.572514        3          0.0             ! C6A_CH3_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH20       CH20       CH20       CH20       0.705517        1          0.0             ! C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH20       CH20       CH20       CH20       -0.135507       2          180.0           ! C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH20       CH20       CH20       CH20       1.572514        3          0.0             ! C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3          C6A_CH2_sp3         
+CH35       CH22       CH22       CH22       0.705517        1          0.0             ! S6A_CH3_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH35       CH22       CH22       CH22       -0.135507       2          180.0           ! S6A_CH3_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH35       CH22       CH22       CH22       1.572514        3          0.0             ! S6A_CH3_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH22       CH22       CH22       CH22       0.705517        1          0.0             ! S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH22       CH22       CH22       CH22       -0.135507       2          180.0           ! S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH22       CH22       CH22       CH22       1.572514        3          0.0             ! S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3          S6A_CH2_sp3         
+CH34       CH21       CH21       CH34       0.705517        1          0.0             ! S4A_CH3_sp3          S4A_CH2_sp3          S4A_CH2_sp3          S4A_CH3_sp3         
+CH34       CH21       CH21       CH34       -0.135507       2          180.0           ! S4A_CH3_sp3          S4A_CH2_sp3          S4A_CH2_sp3          S4A_CH3_sp3         
+CH34       CH21       CH21       CH34       1.572514        3          0.0             ! S4A_CH3_sp3          S4A_CH2_sp3          S4A_CH2_sp3          S4A_CH3_sp3         
+! The input dihedral to periodic dihedral conversion error is OK [error <= 10^(-10)]
+! Maximum( |(input dihedral calc)-(periodic dihedral calc)| ) =  0.0
+
+NONBONDED * LJ
+! 
+! V(Lennard-Jones) = Epsilon,i,j[(Rmin,i,j/ri,j)**12 - 2(Rmin,i,j/ri,j)**6]
+!                                    or
+! V(Lennard-Jones) = 4 * Epsilon,i,j[(Sigma,i,j/ri,j)**12 - (Sigma,i,j/ri,j)**6]
+! 
+! type_1   ignored         epsilon         Rmin/2          ignored         epsilon,1-4     Rmin/2,1-4      ! extended_type_1      extended_type_2     
+CH30       0.0             -0.1947460063   2.1046163406    0.0             -0.0            2.1046163406    ! C1OH_CH3_O           C1OH_CH3_O          
+O0         0.0             -0.1848099856   1.6949176929    0.0             -0.0            1.6949176929    ! C1OH_O               C1OH_O              
+H0         0.0             -0.0            0.0             0.0             -0.0            0.0             ! C1OH_H               C1OH_H              
+CH31       0.0             -0.1947460063   2.1046163406    0.0             -0.0            2.1046163406    ! C6A_CH3_sp3          C6A_CH3_sp3         
+CH20       0.0             -0.0914113907   2.2168625454    0.0             -0.0            2.2168625454    ! C6A_CH2_sp3          C6A_CH2_sp3         
+CH32       0.0             -0.0486865016   2.1046163406    0.0             -0.0            2.1046163406    ! S1OH_CH3_O           S1OH_CH3_O          
+O1         0.0             -0.0462024964   1.6949176929    0.0             -0.0            1.6949176929    ! S1OH_O               S1OH_O              
+H1         0.0             -0.0            0.0             0.0             -0.0            0.0             ! S1OH_H               S1OH_H              
+CH35       0.0             -0.0486865016   2.1046163406    0.0             -0.0            2.1046163406    ! S6A_CH3_sp3          S6A_CH3_sp3         
+CH22       0.0             -0.0228528477   2.2168625454    0.0             -0.0            2.2168625454    ! S6A_CH2_sp3          S6A_CH2_sp3         
+CH34       0.0             -0.0486865016   2.1046163406    0.0             -0.0            2.1046163406    ! S4A_CH3_sp3          S4A_CH3_sp3         
+CH21       0.0             -0.0228528477   2.2168625454    0.0             -0.0            2.2168625454    ! S4A_CH2_sp3          S4A_CH2_sp3         
+CH33       0.0             -0.0486865016   2.1046163406    0.0             -0.0            2.1046163406    ! S2A_CH3_sp3          S2A_CH3_sp3         
+
+END
